@@ -1,0 +1,117 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+bool czyPierwsza(int n);
+bool czyDoskonala(int n);
+void pierwszaGen();
+void doskonalaGen();
+
+int main()
+{
+    cout << "Witam w programie!" << endl;
+    int x;
+    
+    while(1)
+    {
+        x = NULL;
+        cout << "Menu: " << endl;
+        cout << "1. Generator liczb pierwszych" << endl;
+        cout << "2. Generator liczb doskonalych" << endl;
+        cout << "3. Wyjscie" << endl;
+        cout << "Wybierz: ";
+        cin >> x;
+        
+        switch(x)
+        {
+            case 1:
+                pierwszaGen();
+                cout << endl << endl << endl;
+                break;
+            case 2:
+                doskonalaGen();
+                cout << endl << endl << endl;
+                break;
+            case 3:
+                exit(0);
+            default:
+                cout << "Nie ma takiej opcji!" << endl;
+            break;
+        }
+    }
+    
+    return 0;
+}
+
+
+
+bool czyPierwsza(int n)
+{
+    for (int i=2; i<n; i++)
+    {
+        if(n%i==0) return 0;
+    }
+    return 1;
+}
+
+bool czyDoskonala(int n)
+{
+    int suma = 0;
+    for (int i=1; i<n; i++)
+    {
+        if(n%i == 0)
+        {
+            suma += i;
+        }
+    }
+    if(suma == n) return 1;
+    return 0;
+}
+
+void pierwszaGen()
+{
+    int n;
+    cout << "Ile liczb pierwszych chcesz wygenerowac: ";
+    cin >> n;
+    
+    int i=2, p=0;
+    int tab[n];
+    float temp = 0;
+    while(p<n)
+    {
+        if(czyPierwsza(i)==1)
+        {
+            temp = i;
+            tab[p] = i;
+            p++;
+        }
+        i++;
+    }
+    
+    i = 0;
+    p = 0;
+    
+    for(int j=0; j<n; j++)
+    {
+        cout << tab[j] << "  |  " << setprecision(4) << (tab[j]/temp) * 100 << "%" << endl;
+    }
+}
+
+void doskonalaGen()
+{
+    int n;
+    cout << "Ile liczb doskonalych chcesz wygenerowac: ";
+    cin >> n;
+    
+    int i = 1, d = 0;
+    while(d<n)
+    {
+        if(czyDoskonala(i) == 1)
+        {
+            cout << i << endl;
+            d++;
+        }
+        i++;
+    }
+}
