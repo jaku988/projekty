@@ -11,11 +11,14 @@ def openFile():
                                               initialdir="C:\\Users\\Jaku\\PycharmProjects\\pythonProject2",
                                               filetype=(("Text Files", ".txt"), ("All Files", "*.*")))
         if filepath != None:
-            file = open(filepath, "r")
-            filetext = file.read()
-            bufor.delete(1.0, END)
-            bufor.insert(1.0, filetext)
-            file.close()
+            try:
+                file = open(filepath, "r")
+                filetext = file.read()
+                bufor.delete(1.0, END)
+                bufor.insert(1.0, filetext)
+                file.close()
+            except ValueError:
+                messagebox.showerror(title="Uwaga", message="Zły format pliku!")
     else:
         return
 
@@ -30,7 +33,6 @@ def saveFile():
 
 def exit():
     quit()
-    
 
 window = Tk()
 window.title("Pierwsze zajecia z Pythona")
