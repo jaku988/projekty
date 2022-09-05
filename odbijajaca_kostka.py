@@ -18,7 +18,6 @@ canvas.bind("<Button-1>", jump)
 cubeWidth = canvas.bbox(cube)[2] - 1
 cubeHeight = cubeWidth
 
-start = True
 while (canvas.coords(cube)[3] < HEIGHT and canvas.coords(cube)[1] >= 0):
 
     if canvas.coords(cube)[2] >= WIDTH or canvas.coords(cube)[0] < 0:
