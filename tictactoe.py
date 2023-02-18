@@ -59,7 +59,7 @@ def check_winner():
     elif buttons[2].cget("text") == str(players[0]) and buttons[5].cget("text") == str(players[0]) and buttons[8].cget("text") == str(players[0]):
         color(2, 5, 8)
         return True
-    elif buttons[2].cget("text") == str(players[1]) and buttons[5].cget("text") == str(players[1]) and buttons[5].cget("text") == str(players[1]):
+    elif buttons[2].cget("text") == str(players[1]) and buttons[5].cget("text") == str(players[1]) and buttons[8].cget("text") == str(players[1]):
         color(2, 5, 8)
         return True
 
